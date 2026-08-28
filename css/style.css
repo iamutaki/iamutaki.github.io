@@ -1,0 +1,113 @@
+@font-face {
+  font-family: "BerkeleyMono";
+  src: url(/fonts/BerkeleyMonoVariable.woff2) format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+  --color-gray: oklch(65% 0.01 286);
+  --color-gray100: color-mix(in srgb, white 80%, var(--color-gray));
+  --color-gray980: color-mix(in srgb, black 95%, var(--color-gray));
+  --color-bg: light-dark(#f7f7f8, #151516);
+  --color-fg: light-dark(var(--color-gray980), var(--color-gray100));
+  --color-fg3: var(--color-gray);
+  --font-mono:
+    "BerkeleyMono", ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Monaco,
+    "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #ffff00;
+  color: #000000;
+}
+
+a {
+  color: inherit;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  line-height: 20px;
+  padding: 40px;
+  margin: 0;
+}
+
+pre,
+code {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+pre {
+  margin: 0;
+  max-width: 480px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.header {
+  display: inline-block;
+  line-height: 18px;
+}
+
+.cursor {
+  animation: flash 1s infinite;
+}
+
+@keyframes flash {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.mono-h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.mono-h1::before {
+  content: "# ";
+  color: var(--color-fg3);
+}
+
+.mono-h2 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.mono-h2::before {
+  content: "## ";
+  color: var(--color-fg3);
+}
+
+.spaced {
+  display: inline-block;
+  margin-top: 80px;
+}
+
+.back-link {
+  line-height: 18px;
+}
