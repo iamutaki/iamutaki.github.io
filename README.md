@@ -1,14 +1,16 @@
 # iamutaki.github.io
 
-Static personal site. No build step — plain HTML and CSS.
+Static personal site, built by GitHub Pages with Jekyll.
 
 ## Structure
 
 ```text
-index.html       homepage
-work/index.html  work page
-css/style.css    pierre-style theme
-fonts/           Berkeley Mono
+_layouts/default.html  shared <head> (fonts, CSS, analytics) + page skeleton
+index.html             homepage (frontmatter + content)
+work/index.html        work page (frontmatter + content)
+_config.yml            site title/description, build excludes
+css/style.css          pierre-style theme
+fonts/                 Berkeley Mono
 ```
 
 ## Local preview
