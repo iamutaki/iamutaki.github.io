@@ -23,5 +23,5 @@ Open <http://localhost:4321>
 
 ## Deploy
 
-Push to `main` — GitHub Pages builds and serves the repo root
+Push to `main`: GitHub Pages builds and serves the repo root
 (Settings → Pages → Deploy from a branch).
