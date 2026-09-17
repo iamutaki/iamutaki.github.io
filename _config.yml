@@ -2,6 +2,7 @@ title: Ibnul Mutaki
 description: Ibnul Mutaki, fall stuck developer making valid bugs since 2017.
 url: https://www.iamutaki.com
 permalink: /blog/:title/
+future: true
 
 plugins:
   - jekyll-sitemap
