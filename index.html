@@ -31,15 +31,20 @@ Running a company of one. Meetings are very efficient. The CEO always agrees wit
 
 - <a href="/work/">More about work</a>
 
+<span class="mono-h2">BLOG</span>
+
+Occasionally I write things down. Mostly to blame future me.
+
+{% assign latest = site.posts.first %}
+{% if latest %}
+LATEST: <a href="{{ latest.url }}">{{ latest.date | date: "%Y-%m-%d" }} {{ latest.title }}</a>
+
+{% endif %}
+- <a href="/blog/">All posts</a>
+
 <span class="mono-h2">PROJECTS</span>
 
 Mostly websites. Sometimes apps. Always another login screen.
 
 If it runs in a browser or on a phone, I've probably touched it. Exciting? Debatable.
-
-<span class="mono-h2">BLOG</span>
-
-Occasionally I write things down. Mostly to blame future me.
-
-- <a href="/blog/">Visit blog</a>
     </code></pre>
