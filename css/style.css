@@ -111,3 +111,78 @@ pre {
 .back-link {
   line-height: 18px;
 }
+
+/* === CRT decorations === */
+
+/* scanlines: garis horizontal tipis khas layar tabung */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 2px,
+    light-dark(rgb(0 0 0 / 0.05), rgb(255 255 255 / 0.025)) 3px,
+    transparent 4px
+  );
+}
+
+/* vignette: tepi layar sedikit gelap, seperti tabung CRT */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 60%,
+    light-dark(rgb(0 0 0 / 0.06), rgb(0 0 0 / 0.35)) 100%
+  );
+}
+
+/* power-on: halaman menyala seperti monitor lama */
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    animation: crt-on 450ms ease-out;
+    transform-origin: center;
+  }
+
+  @keyframes crt-on {
+    0% {
+      transform: scaleY(0.01);
+      filter: brightness(3);
+      opacity: 0;
+    }
+    40% {
+      transform: scaleY(0.01);
+      filter: brightness(3);
+      opacity: 1;
+    }
+    70% {
+      transform: scaleY(1.02);
+    }
+    100% {
+      transform: scaleY(1);
+      filter: none;
+    }
+  }
+}
+
+/* inverse video: link menyala terbalik saat disentuh/di-hover */
+a:hover,
+a:active {
+  background-color: var(--color-fg);
+  color: var(--color-bg);
+  text-decoration: none;
+}
+
+/* ruang napas lebih pas di layar kecil */
+@media (max-width: 480px) {
+  body {
+    padding: 20px;
+  }
+}
