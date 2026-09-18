@@ -41,12 +41,14 @@
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link
       rel="preload"
-      href="/fonts/BerkeleyMonoVariable.woff2"
+      href="/fonts/BerkeleyMono-Regular-subset.woff2"
       as="font"
       type="font/woff2"
       crossorigin
     />
-    <link rel="stylesheet" href="/css/style.css" />
+    <style>
+      {% include_relative ../css/style.css %}
+    </style>
     <!-- Cloudflare Web Analytics -->
     <script
       type="module"
