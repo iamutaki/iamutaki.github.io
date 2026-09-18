@@ -34,11 +34,8 @@ Running a company of one. Meetings are very efficient. The CEO always agrees wit
 <span class="mono-h2">BLOG</span>
 
 Occasionally I write things down. Mostly to blame future me.
-
-{% assign latest = site.posts.first %}
-{% if latest %}
-LATEST: <a href="{{ latest.url }}">{{ latest.date | date: "%Y-%m-%d" }} {{ latest.title }}</a>
-
+{% assign latest = site.posts.first %}{% if latest %}
+LATEST: <a href="{{ latest.url }}">{{ latest.title }}</a>
 {% endif %}
 - <a href="/blog/">All posts</a>
 
