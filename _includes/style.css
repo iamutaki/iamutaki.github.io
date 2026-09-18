@@ -76,6 +76,16 @@ pre {
   line-height: 18px;
 }
 
+/* banner figlet slant (45 kolom, mixed case): muat di 320px+ tanpa scroll */
+.banner {
+  max-width: none;
+  white-space: pre;
+  overflow-wrap: normal;
+  font-size: min(13px, 3vw);
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
 .cursor {
   animation: flash 1s infinite;
 }
