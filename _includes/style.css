@@ -51,8 +51,8 @@ body {
   background-color: var(--color-bg);
   color: var(--color-fg);
   font-family: var(--font-mono);
-  font-size: 12px;
-  line-height: 20px;
+  font-size: 14px;
+  line-height: 24px;
   padding: 40px;
   margin: 0;
 }

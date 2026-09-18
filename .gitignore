@@ -4,3 +4,6 @@ dist/
 .env
 .env.*
 QUEUE.md
+docs/
+_site/
+.jekyll-cache/
