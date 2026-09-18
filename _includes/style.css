@@ -53,7 +53,7 @@ body {
   font-family: var(--font-mono);
   font-size: 14px;
   line-height: 24px;
-  padding: 40px;
+  padding: 40px 40px 72px;
   margin: 0;
 }
 
@@ -111,6 +111,13 @@ pre {
   color: var(--color-fg3);
 }
 
+/* range tanggal jangan patah di tengah, geser utuh ke baris baru;
+   redup karena ini metadata, bukan heading */
+.date {
+  white-space: nowrap;
+  color: var(--color-fg3);
+}
+
 .spaced {
   display: inline-block;
   margin-top: 32px;
@@ -120,9 +127,37 @@ pre {
   line-height: 18px;
 }
 
+/* statusline ala vim: inverse video, nempel di bawah */
+.statusline {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 6px 16px calc(6px + env(safe-area-inset-bottom, 0px));
+  background: var(--color-fg);
+  color: var(--color-bg);
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.statusline .mode {
+  font-weight: 700;
+}
+
+.statusline .fname {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* ruang napas lebih pas di layar kecil */
 @media (max-width: 480px) {
   body {
-    padding: 20px;
+    padding: 20px 20px 64px;
   }
 }

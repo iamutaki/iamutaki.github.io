@@ -65,5 +65,29 @@
   </head>
   <body>
     <main>{{ content }}</main>
+    <footer class="statusline" aria-hidden="true">
+      <span class="mode">-- NORMAL --</span>
+      <span class="fname">~/{{ page.path | default: 'index.html' }}</span>
+      <span class="ruler">[utf-8] <span id="pct">Top</span></span>
+    </footer>
+    <script>
+      (() => {
+        const el = document.getElementById("pct");
+        const upd = () => {
+          const h = document.documentElement;
+          const max = h.scrollHeight - h.clientHeight;
+          let label;
+          if (max <= 0) {
+            label = "All"; // seluruh buffer muat di layar, sama seperti ruler vim
+          } else {
+            const p = Math.round((h.scrollTop / max) * 100);
+            label = p <= 0 ? "Top" : p >= 100 ? "Bot" : p + "%";
+          }
+          el.textContent = label;
+        };
+        addEventListener("scroll", upd, { passive: true });
+        upd();
+      })();
+    </script>
   </body>
 </html>
