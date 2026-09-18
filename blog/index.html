@@ -10,7 +10,7 @@ description: Notes, rants, and valid bugs. Words by Ibnul Mutaki.
 
 {% if site.posts.size == 0 %}No posts yet.
 
-The ideas are valid. The drafts are buggy. Working on it.{% endif %}{% for post in site.posts %}{{ post.date | date: "%Y-%m-%d" }}  <a href="{{ post.url }}">{{ post.title }}</a>
+The ideas are valid. The drafts are buggy. Working on it.{% endif %}{% for post in site.posts %}<span class="mono-h2">{{ post.date | date: "%Y-%m-%d" }}  <a href="{{ post.url }}">{{ post.title }}</a></span>
 
 {{ post.description }}
 
