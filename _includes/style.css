@@ -64,6 +64,10 @@ code {
   line-height: inherit;
 }
 
+main {
+  container-type: inline-size;
+}
+
 pre {
   margin: 0;
   max-width: 480px;
@@ -76,14 +80,106 @@ pre {
   line-height: 18px;
 }
 
-/* banner figlet slant (45 kolom, mixed case): muat di 320px+ tanpa scroll */
+/* potret ASCII, 62 kolom. Berkeley Mono = 0.6em per huruf, jadi 37.2em.
+   100cqi = lebar kolom konten (sudah dikurangi padding body). */
 .banner {
   max-width: none;
   white-space: pre;
   overflow-wrap: normal;
-  font-size: min(13px, 3vw);
-  line-height: 1.15;
+  font-size: min(12px, calc(100cqi / 37.2));
+  line-height: 1.05;
   margin-bottom: 16px;
+}
+
+/* meter ala htop. lebar batang = --fill, jadi kolomnya menyusut
+   bersama layar; bukan kotak ASCII yang lebarnya tetap. */
+.htop {
+  max-width: 480px;
+  margin: 16px 0;
+  padding: 8px 0 10px;
+  border-block: 1px solid color-mix(in srgb, var(--color-fg) 28%, transparent);
+  --htop-fill: light-dark(oklch(84% 0.08 145), oklch(40% 0.06 145));
+  --htop-fill-ok: light-dark(oklch(76% 0.14 145), oklch(52% 0.11 145));
+}
+
+.htop-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 16px;
+  margin-bottom: 6px;
+  color: var(--color-fg3);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.htop-row {
+  display: grid;
+  grid-template-columns: 9ch minmax(0, 1fr);
+  column-gap: 8px;
+  align-items: center;
+  line-height: 24px;
+}
+
+.key {
+  color: var(--color-fg3);
+}
+
+.slot {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 0.35ch;
+  min-width: 0;
+}
+
+.br {
+  color: var(--color-fg3);
+}
+
+.slot a,
+.slot .val {
+  position: relative;
+  z-index: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0 4px;
+  line-height: 20px;
+}
+
+.slot a::before,
+.slot .val::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 3px;
+  bottom: 3px;
+  width: var(--fill);
+  background: var(--htop-fill);
+}
+
+.slot-ok .val::before {
+  background: var(--htop-fill-ok);
+}
+
+.slot a:focus-visible {
+  outline: 2px solid #ffff00;
+  outline-offset: 1px;
+}
+
+@media (max-width: 360px) {
+  .htop-row {
+    grid-template-columns: minmax(0, 1fr);
+    line-height: 18px;
+    margin-bottom: 6px;
+  }
+
+  .key {
+    font-size: 12px;
+    line-height: 16px;
+  }
 }
 
 .cursor {

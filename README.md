@@ -16,10 +16,11 @@ fonts/                 Berkeley Mono
 ## Local preview
 
 ```bash
-python3 -m http.server 4321
+gem install jekyll jekyll-sitemap jekyll-feed
+jekyll serve --livereload
 ```
 
-Open <http://localhost:4321>
+Open <http://localhost:4000>
 
 ## Deploy
 
