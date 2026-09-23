@@ -91,15 +91,16 @@ pre {
   margin-bottom: 16px;
 }
 
-/* meter ala htop. lebar batang = --fill, jadi kolomnya menyusut
-   bersama layar; bukan kotak ASCII yang lebarnya tetap. */
+/* batang terpisah dari teks, jadi hijaunya bisa pekat tanpa
+   menimpa huruf. --fill diwariskan ke .fill. */
 .htop {
   max-width: 480px;
   margin: 16px 0;
   padding: 8px 0 10px;
-  border-block: 1px solid color-mix(in srgb, var(--color-fg) 28%, transparent);
-  --htop-fill: light-dark(oklch(84% 0.08 145), oklch(40% 0.06 145));
-  --htop-fill-ok: light-dark(oklch(76% 0.14 145), oklch(52% 0.11 145));
+  border-block: 1px solid color-mix(in srgb, var(--color-fg) 45%, transparent);
+  --htop-fill: light-dark(oklch(42% 0.15 145), oklch(78% 0.17 145));
+  --htop-fill-ok: light-dark(oklch(36% 0.16 145), oklch(84% 0.19 145));
+  --htop-track: light-dark(oklch(88% 0.012 145), oklch(32% 0.02 145));
 }
 
 .htop-meta {
@@ -114,71 +115,53 @@ pre {
 
 .htop-row {
   display: grid;
-  grid-template-columns: 9ch minmax(0, 1fr);
+  grid-template-columns: 9ch minmax(72px, 1fr) max-content;
+  grid-template-areas: "key meter val";
   column-gap: 8px;
   align-items: center;
   line-height: 24px;
 }
 
 .key {
-  color: var(--color-fg3);
+  grid-area: key;
 }
 
-.slot {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: center;
-  column-gap: 0.35ch;
-  min-width: 0;
+.meter {
+  grid-area: meter;
+  display: block;
+  height: 10px;
+  background: var(--htop-track);
 }
 
-.br {
-  color: var(--color-fg3);
-}
-
-.slot a,
-.slot .val {
-  position: relative;
-  z-index: 0;
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding: 0 4px;
-  line-height: 20px;
-}
-
-.slot a::before,
-.slot .val::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: 0;
-  top: 3px;
-  bottom: 3px;
+.fill {
+  display: block;
+  height: 100%;
   width: var(--fill);
   background: var(--htop-fill);
 }
 
-.slot-ok .val::before {
+.meter-ok .fill {
   background: var(--htop-fill-ok);
 }
 
-.slot a:focus-visible {
-  outline: 2px solid #ffff00;
-  outline-offset: 1px;
+.htop-row > a,
+.htop-row > .val {
+  grid-area: val;
 }
 
-@media (max-width: 360px) {
-  .htop-row {
-    grid-template-columns: minmax(0, 1fr);
-    line-height: 18px;
-    margin-bottom: 6px;
-  }
+.htop a:focus-visible {
+  outline: 2px solid #ffff00;
+  outline-offset: 2px;
+}
 
-  .key {
-    font-size: 12px;
-    line-height: 16px;
+@container (max-width: 440px) {
+  .htop-row {
+    grid-template-columns: minmax(0, 1fr) max-content;
+    grid-template-areas:
+      "key val"
+      "meter meter";
+    row-gap: 2px;
+    margin-bottom: 8px;
   }
 }
 
