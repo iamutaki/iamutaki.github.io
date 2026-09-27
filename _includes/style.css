@@ -47,7 +47,7 @@ html {
 }
 
 a {
-  color: var(--color-ok);
+  color: inherit;
   text-underline-offset: 3px;
 }
 
@@ -193,7 +193,7 @@ pre {
 
 .key {
   grid-area: key;
-  color: var(--color-ok);
+  color: var(--color-fg3);
 }
 
 .meter {
@@ -217,6 +217,16 @@ pre {
 .htop-row > a,
 .htop-row > .val {
   grid-area: val;
+  color: var(--color-fg);
+}
+
+.htop-row > a {
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-fg) 35%, transparent);
+}
+
+.htop-row > a:hover {
+  text-decoration-color: var(--color-fg);
 }
 
 .htop a:focus-visible {
