@@ -83,8 +83,7 @@ pre {
   display: inline-block;
 }
 
-/* log boot. titik pemisah adalah sisa kolom, jadi barisnya
-   tidak memaksa lebar tetap di layar sempit. */
+/* log boot. leader = titik `.` nyata, jarang, mengisi sampai status. */
 .boot {
   max-width: 480px;
   margin: 0 0 20px;
@@ -92,8 +91,8 @@ pre {
 
 .boot-line {
   display: grid;
-  grid-template-columns: 8ch minmax(0, 1fr) auto;
-  column-gap: 8px;
+  grid-template-columns: 8ch minmax(0, 1fr) max-content;
+  column-gap: 1ch;
   align-items: baseline;
   animation: boot-in 0.35s both;
 }
@@ -105,31 +104,43 @@ pre {
 
 .boot-ts {
   color: var(--color-fg3);
+  font-variant-numeric: tabular-nums;
 }
 
 .boot-msg {
   display: flex;
   align-items: baseline;
-  gap: 8px;
-  min-width: 0;
-}
-
-.boot-msg > span {
+  gap: 1ch;
   min-width: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.boot-msg::after {
-  content: "";
+.boot-dots {
   flex: 1 1 auto;
-  border-bottom: 1px dotted color-mix(in srgb, var(--color-fg) 45%, transparent);
-  transform: translateY(-0.3em);
+  min-width: 2ch;
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--color-fg3);
 }
 
-.boot-plain::after {
-  content: none;
+.boot-st {
+  white-space: nowrap;
+  justify-self: end;
+}
+
+.boot-line-progress {
+  grid-template-columns: 8ch minmax(0, 1fr);
+}
+
+.boot-line-progress .boot-msg {
+  gap: 0;
+}
+
+.boot-end {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  margin-left: 1ch;
 }
 
 .boot-ok {

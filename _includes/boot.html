@@ -21,17 +21,17 @@
 <div class="boot" aria-hidden="true">
   <div class="boot-line">
     <span class="boot-ts">16:50:55</span>
-    <span class="boot-msg"><span>iamutaki init</span></span>
+    <span class="boot-msg">iamutaki init<span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span></span>
     <span class="boot-st"></span>
   </div>
   <div class="boot-line">
     <span class="boot-ts">16:50:56</span>
-    <span class="boot-msg"><span>shell</span></span>
+    <span class="boot-msg">shell<span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span></span>
     <span class="boot-st boot-ok">OK</span>
   </div>
   <div class="boot-line">
     <span class="boot-ts">16:50:58</span>
-    <span class="boot-msg"><span>{{ boot_mount }}</span></span>
+    <span class="boot-msg">{{ boot_mount }}<span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span></span>
     {% if boot_fail %}
     <span class="boot-st boot-fail">FAIL</span>
     {% else %}
@@ -40,17 +40,15 @@
   </div>
   <div class="boot-line">
     <span class="boot-ts">16:51:00</span>
-    <span class="boot-msg"><span>{{ boot_step }}</span></span>
+    <span class="boot-msg">{{ boot_step }}<span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span></span>
     <span class="boot-st boot-ok">OK</span>
   </div>
-  <div class="boot-line">
+  <div class="boot-line boot-line-progress">
     <span class="boot-ts">16:51:02</span>
     {% if boot_fail %}
-    <span class="boot-msg boot-plain"><span class="boot-fail">[####............]</span></span>
-    <span class="boot-st boot-fail">404</span>
+    <span class="boot-msg boot-fail"><span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span><span class="boot-end">#### 404</span></span>
     {% else %}
-    <span class="boot-msg boot-plain"><span class="boot-ok">[################]</span></span>
-    <span class="boot-st boot-ok">100%</span>
+    <span class="boot-msg boot-ok"><span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span><span class="boot-end">#### 100%</span></span>
     {% endif %}
   </div>
 </div>
