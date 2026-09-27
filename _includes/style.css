@@ -22,6 +22,9 @@
   --color-bg: light-dark(#f7f7f8, #151516);
   --color-fg: light-dark(var(--color-gray980), var(--color-gray100));
   --color-fg3: light-dark(oklch(55% 0.01 286), var(--color-gray));
+  --color-ok: light-dark(oklch(42% 0.15 145), oklch(78% 0.17 145));
+  --color-ok-strong: light-dark(oklch(36% 0.16 145), oklch(84% 0.19 145));
+  --color-fail: light-dark(oklch(48% 0.16 25), oklch(75% 0.13 25));
   --font-mono:
     "BerkeleyMono", ui-monospace, "SF Mono", "SFMono-Regular", Menlo, Monaco,
     "Cascadia Mono", Consolas, "Liberation Mono", monospace;
@@ -44,7 +47,8 @@ html {
 }
 
 a {
-  color: inherit;
+  color: var(--color-ok);
+  text-underline-offset: 3px;
 }
 
 body {
@@ -77,7 +81,74 @@ pre {
 
 .header {
   display: inline-block;
-  line-height: 18px;
+}
+
+/* log boot. titik pemisah adalah sisa kolom, jadi barisnya
+   tidak memaksa lebar tetap di layar sempit. */
+.boot {
+  max-width: 480px;
+  margin: 0 0 20px;
+}
+
+.boot-line {
+  display: grid;
+  grid-template-columns: 8ch minmax(0, 1fr) auto;
+  column-gap: 8px;
+  align-items: baseline;
+  animation: boot-in 0.35s both;
+}
+
+.boot-line:nth-child(2) { animation-delay: 0.08s; }
+.boot-line:nth-child(3) { animation-delay: 0.16s; }
+.boot-line:nth-child(4) { animation-delay: 0.24s; }
+.boot-line:nth-child(5) { animation-delay: 0.32s; }
+
+.boot-ts {
+  color: var(--color-fg3);
+}
+
+.boot-msg {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
+
+.boot-msg > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.boot-msg::after {
+  content: "";
+  flex: 1 1 auto;
+  border-bottom: 1px dotted color-mix(in srgb, var(--color-fg) 45%, transparent);
+  transform: translateY(-0.3em);
+}
+
+.boot-plain::after {
+  content: none;
+}
+
+.boot-ok {
+  color: var(--color-ok);
+}
+
+.boot-fail {
+  color: var(--color-fail);
+}
+
+@keyframes boot-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot-line {
+    animation: none;
+  }
 }
 
 /* potret ASCII, 62 kolom. Berkeley Mono = 0.6em per huruf, jadi 37.2em.
@@ -98,8 +169,8 @@ pre {
   margin: 16px 0;
   padding: 8px 0 10px;
   border-block: 1px solid color-mix(in srgb, var(--color-fg) 45%, transparent);
-  --htop-fill: light-dark(oklch(42% 0.15 145), oklch(78% 0.17 145));
-  --htop-fill-ok: light-dark(oklch(36% 0.16 145), oklch(84% 0.19 145));
+  --htop-fill: var(--color-ok);
+  --htop-fill-ok: var(--color-ok-strong);
   --htop-track: light-dark(oklch(88% 0.012 145), oklch(32% 0.02 145));
 }
 
@@ -109,8 +180,6 @@ pre {
   gap: 2px 16px;
   margin-bottom: 6px;
   color: var(--color-fg3);
-  font-size: 12px;
-  line-height: 18px;
 }
 
 .htop-row {
@@ -124,6 +193,7 @@ pre {
 
 .key {
   grid-area: key;
+  color: var(--color-ok);
 }
 
 .meter {
@@ -166,6 +236,7 @@ pre {
 }
 
 .cursor {
+  color: var(--color-ok);
   animation: flash 1s infinite;
 }
 
@@ -180,24 +251,26 @@ pre {
   }
 }
 
-.mono-h1 {
+.mono-h1,
+.mono-h2 {
+  display: inline;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .mono-h1::before {
   content: "# ";
-  color: var(--color-fg3);
-}
-
-.mono-h2 {
-  font-weight: 700;
-  text-transform: uppercase;
+  color: var(--color-ok);
 }
 
 .mono-h2::before {
   content: "## ";
-  color: var(--color-fg3);
+  color: var(--color-ok);
 }
 
 /* range tanggal jangan patah di tengah, geser utuh ke baris baru;
@@ -213,7 +286,7 @@ pre {
 }
 
 .back-link {
-  line-height: 18px;
+  line-height: inherit;
 }
 
 /* statusline ala vim: inverse video, nempel di bawah */

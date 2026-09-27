@@ -1,0 +1,56 @@
+{% if page.path == "index.html" %}
+  {% assign boot_mount = "mount ~/home" %}
+  {% assign boot_step = "portrait + htop" %}
+{% elsif page.path == "projects/index.html" %}
+  {% assign boot_mount = "mount ~/projects" %}
+  {% assign boot_step = "inventory shipped" %}
+{% elsif page.path == "work/index.html" %}
+  {% assign boot_mount = "mount ~/work" %}
+  {% assign boot_step = "records loaded" %}
+{% elsif page.path == "blog/index.html" %}
+  {% assign boot_mount = "mount ~/blog" %}
+  {% assign boot_step = "posts queued" %}
+{% elsif page.path == "404.html" %}
+  {% assign boot_mount = "mount unit" %}
+  {% assign boot_step = "fallback /home" %}
+  {% assign boot_fail = true %}
+{% else %}
+  {% assign boot_mount = "mount buffer" %}
+  {% assign boot_step = page.title | default: "content" %}
+{% endif %}
+<div class="boot" aria-hidden="true">
+  <div class="boot-line">
+    <span class="boot-ts">16:50:55</span>
+    <span class="boot-msg"><span>iamutaki init</span></span>
+    <span class="boot-st"></span>
+  </div>
+  <div class="boot-line">
+    <span class="boot-ts">16:50:56</span>
+    <span class="boot-msg"><span>shell</span></span>
+    <span class="boot-st boot-ok">OK</span>
+  </div>
+  <div class="boot-line">
+    <span class="boot-ts">16:50:58</span>
+    <span class="boot-msg"><span>{{ boot_mount }}</span></span>
+    {% if boot_fail %}
+    <span class="boot-st boot-fail">FAIL</span>
+    {% else %}
+    <span class="boot-st boot-ok">OK</span>
+    {% endif %}
+  </div>
+  <div class="boot-line">
+    <span class="boot-ts">16:51:00</span>
+    <span class="boot-msg"><span>{{ boot_step }}</span></span>
+    <span class="boot-st boot-ok">OK</span>
+  </div>
+  <div class="boot-line">
+    <span class="boot-ts">16:51:02</span>
+    {% if boot_fail %}
+    <span class="boot-msg boot-plain"><span class="boot-fail">[####............]</span></span>
+    <span class="boot-st boot-fail">404</span>
+    {% else %}
+    <span class="boot-msg boot-plain"><span class="boot-ok">[################]</span></span>
+    <span class="boot-st boot-ok">100%</span>
+    {% endif %}
+  </div>
+</div>

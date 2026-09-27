@@ -1,16 +1,19 @@
 ---
 layout: default
 title: Blog | Ibnul Mutaki
-description: Notes, rants, and valid bugs. Words by Ibnul Mutaki.
+seo_title: Blog - Ibnul Mutaki | Notes, Rants & Valid Bugs
+description: >-
+  Blog by Ibnul Mutaki - notes, rants, and valid bugs from a Fall Stuck Developer
+  in Pontianak, Indonesia.
 ---
 
 <pre><code><a href="/" class="back-link">← Home</a>
 
-<span class="spaced mono-h1">BLOG</span>
+<h1 class="spaced mono-h1">BLOG</h1>
 
 {% if site.posts.size == 0 %}No posts yet.
 
-The ideas are valid. The drafts are buggy. Working on it.{% endif %}{% for post in site.posts %}<span class="mono-h2">{{ post.date | date: "%Y-%m-%d" }}  <a href="{{ post.url }}">{{ post.title }}</a></span>
+The ideas are valid. The drafts are buggy. Working on it.{% endif %}{% for post in site.posts %}<h2 class="mono-h2">{{ post.date | date: "%Y-%m-%d" }}  <a href="{{ post.url }}">{{ post.title }}</a></h2>
 
 {{ post.description }}
 

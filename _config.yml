@@ -1,13 +1,68 @@
 title: Ibnul Mutaki
-description: Ibnul Mutaki, fall stuck developer making valid bugs since 2017.
+description: >-
+  Ibnul Mutaki - Fall Stuck Developer from Pontianak, Indonesia.
+  Making valid bugs since 2017. Software engineer building web and mobile apps.
 url: https://www.iamutaki.com
+lang: en
 permalink: /blog/:title/
 future: true
+
+author:
+  name: Ibnul Mutaki
+  email: ibnuul@gmail.com
+  job_title: Fall Stuck Developer
 
 plugins:
   - jekyll-sitemap
   - jekyll-feed
 
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      image: /og.png
+  - scope:
+      path: ""
+      type: posts
+    values:
+      og_type: article
+      sitemap:
+        changefreq: weekly
+        priority: 0.8
+  - scope:
+      path: "index.html"
+    values:
+      sitemap:
+        changefreq: weekly
+        priority: 1.0
+  - scope:
+      path: "work"
+    values:
+      sitemap:
+        changefreq: monthly
+        priority: 0.9
+  - scope:
+      path: "projects"
+    values:
+      sitemap:
+        changefreq: monthly
+        priority: 0.9
+  - scope:
+      path: "blog"
+    values:
+      sitemap:
+        changefreq: weekly
+        priority: 0.8
+
 exclude:
   - README.md
   - LICENSE
+  - QUEUE.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+
+include:
+  - .well-known

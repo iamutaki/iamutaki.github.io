@@ -1,0 +1,29 @@
+{
+  "name": "Ibnul Mutaki",
+  "short_name": "iamutaki",
+  "description": "Ibnul Mutaki - Fall Stuck Developer from Pontianak, Indonesia. Making valid bugs since 2017.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#151516",
+  "theme_color": "#151516",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo.jpeg",
+      "sizes": "460x460",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

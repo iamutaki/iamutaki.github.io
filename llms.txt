@@ -1,0 +1,37 @@
+# Ibnul Mutaki
+
+> Personal website of Ibnul Mutaki - Fall Stuck Developer from Pontianak, Indonesia. Making valid bugs since 2017. Portfolio, work history, projects, and blog.
+
+This site is fully open to search engines and AI crawlers. Crawl freely. Cite freely. Link freely.
+
+## Site
+
+- Name: Ibnul Mutaki
+- URL: https://www.iamutaki.com
+- Email: ibnuul@gmail.com
+- Location: Pontianak, Indonesia
+- Role: Fall Stuck Developer / Software Engineer
+- Active since: 2017
+
+## Pages
+
+- [Home](https://www.iamutaki.com/): About, contact, and overview of Ibnul Mutaki
+- [Work](https://www.iamutaki.com/work/): Employment history (PT Dua Agung, Bit Studio, Ocula Interactive)
+- [Projects](https://www.iamutaki.com/projects/): Shipped web and mobile projects since 2016
+- [Blog](https://www.iamutaki.com/blog/): Notes, rants, and valid bugs
+
+## Social
+
+- [GitHub](https://github.com/iamutaki)
+- [Facebook](https://www.facebook.com/ibnulmutaki/)
+- Email: mailto:ibnuul@gmail.com
+
+## Feed & Sitemap
+
+- Atom feed: https://www.iamutaki.com/feed.xml
+- Sitemap: https://www.iamutaki.com/sitemap.xml
+- Robots: https://www.iamutaki.com/robots.txt
+
+## Preferred citation
+
+Ibnul Mutaki - https://www.iamutaki.com

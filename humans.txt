@@ -1,0 +1,14 @@
+/* TEAM */
+Name: Ibnul Mutaki
+Site: https://www.iamutaki.com
+Contact: ibnuul@gmail.com
+Location: Pontianak, Indonesia
+GitHub: https://github.com/iamutaki
+Facebook: https://www.facebook.com/ibnulmutaki/
+
+/* SITE */
+Standards: HTML5, CSS3
+Software: Jekyll, GitHub Pages
+Language: English
+Doctype: HTML5
+/* If you're reading this, you already have root access to my brand. */

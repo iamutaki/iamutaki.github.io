@@ -1,0 +1,14 @@
+---
+description: Never use em dashes; always use regular hyphens
+alwaysApply: true
+---
+
+# No Em Dash
+
+Never use the em dash character `—` (U+2014) in any file, copy, commit message, or UI text.
+
+Always use a regular hyphen `-` instead.
+
+Examples:
+- Bad: `Ibnul Mutaki — Fall Stuck Developer`
+- Good: `Ibnul Mutaki - Fall Stuck Developer`
