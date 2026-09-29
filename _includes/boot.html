@@ -1,66 +1,16 @@
-{% if page.path == "index.html" %}
-  {% assign boot_mount = "mount ~/home" %}
-  {% assign boot_step = "portrait + htop" %}
-{% elsif page.path == "projects/index.html" %}
-  {% assign boot_mount = "mount ~/projects" %}
-  {% assign boot_step = "inventory shipped" %}
-{% elsif page.path == "work/index.html" %}
-  {% assign boot_mount = "mount ~/work" %}
-  {% assign boot_step = "records loaded" %}
-{% elsif page.path == "blog/index.html" %}
-  {% assign boot_mount = "mount ~/blog" %}
-  {% assign boot_step = "posts queued" %}
-{% elsif page.path == "404.html" %}
-  {% assign boot_mount = "mount unit" %}
-  {% assign boot_step = "fallback /home" %}
-  {% assign boot_fail = true %}
-{% else %}
-  {% assign boot_mount = "mount buffer" %}
-  {% assign boot_step = page.title | default: "content" %}
-{% endif %}
 <div class="boot" aria-hidden="true">
   <div class="boot-line">
     <span class="boot-ts" data-boot-offset="0">00:00:00</span>
     <span class="boot-msg">iamutaki init<span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span></span>
     <span class="boot-st"></span>
   </div>
-  <div class="boot-line">
-    <span class="boot-ts" data-boot-offset="1">00:00:01</span>
-    <span class="boot-msg">shell<span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span></span>
-    <span class="boot-st boot-ok">OK</span>
-  </div>
-  <div class="boot-line">
-    <span class="boot-ts" data-boot-offset="3">00:00:03</span>
-    <span class="boot-msg">{{ boot_mount }}<span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span></span>
-    {% if boot_fail %}
-    <span class="boot-st boot-fail">FAIL</span>
-    {% else %}
-    <span class="boot-st boot-ok">OK</span>
-    {% endif %}
-  </div>
-  <div class="boot-line">
-    <span class="boot-ts" data-boot-offset="5">00:00:05</span>
-    <span class="boot-msg">{{ boot_step }}<span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span></span>
-    <span class="boot-st boot-ok">OK</span>
-  </div>
-  <div class="boot-line boot-line-progress">
-    <span class="boot-ts" data-boot-offset="7">00:00:07</span>
-    {% if boot_fail %}
-    <span class="boot-msg boot-fail"><span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span><span class="boot-end">#### 404</span></span>
-    {% else %}
-    <span class="boot-msg boot-ok"><span class="boot-dots">. . . . . . . . . . . . . . . . . . . .</span><span class="boot-end">#### 100%</span></span>
-    {% endif %}
-  </div>
 </div>
 <script>
   (() => {
     const pad = (n) => String(n).padStart(2, "0");
-    const fmt = (d) =>
-      `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
-    const base = Date.now();
-    document.querySelectorAll(".boot-ts[data-boot-offset]").forEach((el) => {
-      const sec = Number(el.dataset.bootOffset) || 0;
-      el.textContent = fmt(new Date(base + sec * 1000));
-    });
+    const el = document.querySelector(".boot-ts");
+    if (!el) return;
+    const d = new Date();
+    el.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
   })();
 </script>

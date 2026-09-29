@@ -160,3 +160,72 @@ CURRENT: <a href="https://github.com/sambasku" target="_blank" rel="noopener">Sa
 
 - <a href="/projects/">All projects</a>
     </code></pre>
+<script>
+  (() => {
+    const el = document.querySelector(".banner");
+    if (!el || matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const glyphs = "0123456789$+/|~?wbolzW&";
+    const pick = () => glyphs[(Math.random() * glyphs.length) | 0];
+    let rows = el.textContent.split("\n");
+    if (rows.at(-1) === "") rows.pop();
+    const w = Math.max(...rows.map((r) => r.length));
+    const grid = rows.map((r) => r.padEnd(w, " ").split(""));
+    const h = grid.length;
+    if (!h || grid.some((row) => row.length !== w)) return;
+    const cells = grid.map((row) =>
+      row.map((ch) => {
+        if (ch === " ") return null;
+        const span = document.createElement("span");
+        span.textContent = ch;
+        return span;
+      }),
+    );
+    const frag = document.createDocumentFragment();
+    for (let r = 0; r < h; r++) {
+      for (let c = 0; c < w; c++) {
+        frag.append(cells[r][c] || document.createTextNode(" "));
+      }
+      if (r < h - 1) frag.append(document.createTextNode("\n"));
+    }
+    el.replaceChildren(frag);
+    el.classList.add("banner-mx");
+    const head = Array.from({ length: w }, () => Math.random() * h);
+    const speed = Array.from({ length: w }, () => 0.45 + Math.random() * 1.1);
+    const trail = 10;
+    const restore = (c) => {
+      for (let r = 0; r < h; r++) {
+        const cell = cells[r][c];
+        if (!cell) continue;
+        cell.className = "";
+        cell.textContent = grid[r][c];
+      }
+    };
+    setInterval(() => {
+      for (let c = 0; c < w; c++) {
+        head[c] += speed[c];
+        if (head[c] > h + trail) {
+          restore(c);
+          head[c] = -Math.random() * trail;
+          continue;
+        }
+        const from = Math.max(0, Math.floor(head[c]) - trail - 1);
+        const to = Math.min(h - 1, Math.floor(head[c]));
+        for (let r = from; r <= to; r++) {
+          const cell = cells[r][c];
+          if (!cell) continue;
+          const d = head[c] - r;
+          if (d >= 0 && d < 1) {
+            cell.className = "mx-head";
+            cell.textContent = pick();
+          } else if (d >= 1 && d < trail && Math.random() < 0.12) {
+            cell.className = "mx-drop";
+            cell.textContent = pick();
+          } else {
+            cell.className = "";
+            cell.textContent = grid[r][c];
+          }
+        }
+      }
+    }, 80);
+  })();
+</script>

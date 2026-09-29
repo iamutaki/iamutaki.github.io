@@ -97,11 +97,6 @@ pre {
   animation: boot-in 0.35s both;
 }
 
-.boot-line:nth-child(2) { animation-delay: 0.08s; }
-.boot-line:nth-child(3) { animation-delay: 0.16s; }
-.boot-line:nth-child(4) { animation-delay: 0.24s; }
-.boot-line:nth-child(5) { animation-delay: 0.32s; }
-
 .boot-ts {
   color: var(--color-fg3);
   font-variant-numeric: tabular-nums;
@@ -127,28 +122,6 @@ pre {
 .boot-st {
   white-space: nowrap;
   justify-self: end;
-}
-
-.boot-line-progress {
-  grid-template-columns: 8ch minmax(0, 1fr);
-}
-
-.boot-line-progress .boot-msg {
-  gap: 0;
-}
-
-.boot-end {
-  flex: 0 0 auto;
-  white-space: nowrap;
-  margin-left: 1ch;
-}
-
-.boot-ok {
-  color: var(--color-ok);
-}
-
-.boot-fail {
-  color: var(--color-fail);
 }
 
 @keyframes boot-in {
@@ -199,6 +172,20 @@ pre {
   font-size: min(12px, calc(100cqi / 37.2));
   line-height: 1.05;
   margin-bottom: 16px;
+}
+
+/* potret tetap warna teks. yang jatuh hijau: kepala lebih terang, jejak di belakangnya.
+   ponytail: O(baris*kolom) per tick (~2k). kalau berat, pindah ke canvas. */
+.banner-mx {
+  color: var(--color-fg);
+}
+
+.banner-mx .mx-drop {
+  color: var(--color-ok);
+}
+
+.banner-mx .mx-head {
+  color: var(--color-ok-strong);
 }
 
 /* batang terpisah dari teks, jadi hijaunya bisa pekat tanpa
