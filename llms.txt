@@ -17,7 +17,7 @@ This site is fully open to search engines and AI crawlers. Crawl freely. Cite fr
 
 - [Home](https://www.iamutaki.com/): About, contact, and overview of Ibnul Mutaki
 - [Work](https://www.iamutaki.com/work/): Employment history (PT Dua Agung, Bit Studio, Ocula Interactive)
-- [Projects](https://www.iamutaki.com/projects/): Shipped web and mobile projects since 2016
+- [Projects](https://www.iamutaki.com/projects/): Shipped web and mobile projects since 2016. Current project: [SambasKu](https://github.com/sambasku) (https://sambasku.com)
 - [Blog](https://www.iamutaki.com/blog/): Notes, rants, and valid bugs
 
 ## Social

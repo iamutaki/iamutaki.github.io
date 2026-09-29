@@ -162,6 +162,34 @@ pre {
   }
 }
 
+.nav {
+  max-width: 480px;
+  display: flex;
+  gap: 2ch;
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-fg) 45%, transparent);
+}
+
+.nav a {
+  text-decoration: none;
+}
+
+.nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--color-fg);
+}
+
+.nav a[aria-current="page"] {
+  color: var(--color-ok);
+  font-weight: 700;
+}
+
+.nav a:focus-visible {
+  outline: 2px solid #ffff00;
+  outline-offset: 2px;
+}
+
 /* potret ASCII, 62 kolom. Berkeley Mono = 0.6em per huruf, jadi 37.2em.
    100cqi = lebar kolom konten (sudah dikurangi padding body). */
 .banner {
@@ -254,6 +282,34 @@ pre {
     row-gap: 2px;
     margin-bottom: 8px;
   }
+}
+
+.defaults {
+  max-width: 480px;
+  margin: 24px 0;
+}
+
+.defaults .mono-h2 {
+  display: block;
+}
+
+.defaults dl {
+  margin-top: 8px;
+}
+
+.defaults div {
+  display: grid;
+  grid-template-columns: 14ch minmax(0, 1fr);
+  column-gap: 1ch;
+}
+
+.defaults dt {
+  color: var(--color-fg3);
+  text-transform: uppercase;
+}
+
+.defaults dd {
+  margin: 0;
 }
 
 .cursor {

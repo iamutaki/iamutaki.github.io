@@ -3,16 +3,36 @@ layout: default
 title: Projects | Ibnul Mutaki
 seo_title: Projects - Ibnul Mutaki | Web & Mobile Apps Shipped Since 2016
 description: >-
-  Projects by Ibnul Mutaki: websites, mobile apps, dashboards, and POS systems
-  shipped since 2016. All real, all valid.
+  Projects by Ibnul Mutaki, including SambasKu (github.com/sambasku).
+  Websites, mobile apps, dashboards, and POS systems shipped since 2016.
 ---
 
-<pre><code><a href="/" class="back-link">&larr; Home</a>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  "name": "SambasKu",
+  "description": "Digital dictionary for Bahasa Melayu Sambas and Indonesian. Web, Android, and the API behind both.",
+  "url": "https://sambasku.com",
+  "codeRepository": "https://github.com/sambasku",
+  "author": { "@id": "{{ site.url }}/#person" },
+  "publisher": { "@id": "https://sambasku.com/#organization" }
+}
+</script>
+
+<pre><code><a href="/" class="back-link" aria-label="Home">~</a>
 
 <h1 class="spaced mono-h1">PROJECTS</h1>
 
 Shipped software since 2016. The names are real.
 The outcomes vary. The effort did not.
+
+<h2 class="mono-h2">SambasKu</h2>                                    <span class="date">Current</span>
+
+Digital dictionary for Bahasa Melayu Sambas. Web, Android, and the API behind both.
+Still shipping. The words keep arriving.
+<a href="https://github.com/sambasku" target="_blank" rel="noopener">https://github.com/sambasku</a>
+<a href="https://sambasku.com" target="_blank" rel="noopener">https://sambasku.com</a>
 
 <h2 class="mono-h2">SIGM As-Sakinah Pontianak</h2>                   <span class="date">Nov 2023 - Feb 2024</span>
 
@@ -107,5 +127,5 @@ Java app printing bank deposit receipts for re-registration, thesis, graduation,
 First shipped software. It printed receipts, and my career.
 
 $ ls /projects | wc -l
-18
+19
     </code></pre>
