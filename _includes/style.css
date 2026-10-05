@@ -311,6 +311,12 @@ pre img {
   animation: flash 1s infinite;
 }
 
+/* prompt $ diberi warna sukses ala PS1 terminal berwarna */
+.prompt-ok {
+  color: var(--color-ok-strong);
+  font-weight: 700;
+}
+
 @keyframes flash {
   0%,
   50% {
