@@ -70,6 +70,8 @@ code {
 
 main {
   container-type: inline-size;
+  max-width: 480px;
+  margin-inline: auto;
 }
 
 pre {
