@@ -81,6 +81,12 @@ pre {
   overflow-wrap: anywhere;
 }
 
+pre img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .header {
   display: inline-block;
 }
